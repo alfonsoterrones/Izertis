@@ -1,0 +1,23 @@
+izertis.example:
+  path: '/izertis/example'
+  defaults:
+    _title: 'Example'
+    _controller: '\Drupal\izertis\Controller\IzertisController::build'
+  requirements:
+    _permission: 'access content'
+
+izertis.settings_form:
+  path: '/admin/config/system/izertis'
+  defaults:
+    _title: 'Izertis settings'
+    _form: 'Drupal\izertis\Form\SettingsForm'
+  requirements:
+    _permission: 'administer izertis configuration'
+
+izertis.marvelForm:
+  path: '/marvel'
+  defaults:
+    _title: 'Descarga de contenidos'
+    _form: 'Drupal\izertis\Form\MarvelForm'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,4 @@
+administer izertis configuration:
+  title: 'Administer izertis configuration'
+  description: 'Optional description.'
+  restrict access: true
