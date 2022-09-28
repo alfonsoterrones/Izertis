@@ -28,29 +28,12 @@ class MarvelForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-
-    $terms =\Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('tipos');
-    $tipos [];
-    foreach ($terms as $item) {
-      array_push($tipos, $item['name']);
-    }
-
+    $service = \Drupal::service('izertis.event_subscriber');
     $form['tipo_marvel'] = [
       '#type' => 'select',
       '#title' => $this
-        ->t('Select element'),
-      '#options' => [
-        '1' => $this
-          ->t('One'),
-        '2' => [
-          '2.1' => $this
-            ->t('Two point one'),
-          '2.2' => $this
-            ->t('Two point two'),
-        ],
-        '3' => $this
-          ->t('Three'),
-      ],
+        ->t('Tipo de contenido Marvel'),
+      '#options' => $service->getTypes(),
     ];
 
     return parent::buildForm($form, $form_state);
@@ -60,8 +43,8 @@ class MarvelForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
-    if ($form_state->getValue('example') != 'example') {
-      $form_state->setErrorByName('example', $this->t('The value is not correct.'));
+    if ($form_state->getValue('tipo_marvel') == NULL) {
+      $form_state->setErrorByName('tipo_marvel', $this->t('The value is not correct.'));
     }
     parent::validateForm($form, $form_state);
   }
@@ -70,10 +53,9 @@ class MarvelForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $this->config('izertis.settings')
-      ->set('example', $form_state->getValue('example'))
-      ->save();
-    parent::submitForm($form, $form_state);
+    $service = \Drupal::service('izertis.event_subscriber');
+    $arrayMarvel = $service->getContentMarvel($form_state->getValue('tipo_marvel'));
+    $service->loadContentMarvel($arrayMarvel, $form_state->getValue('tipo_marvel'));
   }
 
 }

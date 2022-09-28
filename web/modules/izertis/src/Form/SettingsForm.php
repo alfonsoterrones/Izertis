@@ -29,10 +29,15 @@ class SettingsForm extends ConfigFormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
-    $form['example'] = [
+    $form['key'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Example'),
-      '#default_value' => $this->config('izertis.settings')->get('example'),
+      '#title' => $this->t('Key'),
+      '#default_value' => $this->config('izertis.settings')->get('key'),
+    ];
+    $form['hash'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Hash'),
+      '#default_value' => $this->config('izertis.settings')->get('hash'),
     ];
     return parent::buildForm($form, $form_state);
   }
@@ -41,8 +46,8 @@ class SettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
-    if ($form_state->getValue('example') != 'example') {
-      $form_state->setErrorByName('example', $this->t('The value is not correct.'));
+    if ($form_state->getValue('key') == NULL) {
+      $form_state->setErrorByName('key', $this->t('The value is not correct.'));
     }
     parent::validateForm($form, $form_state);
   }
@@ -52,7 +57,8 @@ class SettingsForm extends ConfigFormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $this->config('izertis.settings')
-      ->set('example', $form_state->getValue('example'))
+      ->set('key', $form_state->getValue('key'))
+      ->set('hash', $form_state->getValue('hash'))
       ->save();
     parent::submitForm($form, $form_state);
   }

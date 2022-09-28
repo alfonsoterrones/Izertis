@@ -1,5 +1,8 @@
 <?php
 
+use Symfony\Component\Dotenv\Dotenv;
+
+(new Dotenv())->usePutenv()->bootEnv(DRUPAL_ROOT . '/../.env', 'dev', ['test'], true);
 // phpcs:ignoreFile
 
 /**
@@ -794,13 +797,16 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
+
+$settings['url'] = 'https://gateway.marvel.com/v1/public/'.$term.'?ts=1&apikey=8b4aaa9ef72e9ec5318878bf8fb89f7e&hash=4ef9c86594d73a66688a4b5fadb0313d';
+
 $databases['default']['default'] = array (
-  'database' => 'Izertis',
-  'username' => 'media',
-  'password' => 'media',
+  'database' =>  $_ENV['DATABASE_NAME'],
+  'username' =>  $_ENV['DATABASE_USER'],
+  'password' =>  $_ENV['DATABASE_PASSWORD'],
   'prefix' => '',
-  'host' => 'localhost',
-  'port' => '3306',
+  'host' =>  $_ENV['DATABASE_HOST'],
+  'port' =>  $_ENV['DATABASE_PORT'],
   'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
   'driver' => 'mysql',
   'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
