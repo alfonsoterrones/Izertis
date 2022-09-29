@@ -483,7 +483,11 @@ display:
         type: normal
         title: 'My Bookmarks'
         description: ''
-        weight: 0
+        weight: -47
+        enabled: false
+        expanded: false
+        menu_name: main
+        parent: ''
         context: '0'
     cache_metadata:
       max-age: 0

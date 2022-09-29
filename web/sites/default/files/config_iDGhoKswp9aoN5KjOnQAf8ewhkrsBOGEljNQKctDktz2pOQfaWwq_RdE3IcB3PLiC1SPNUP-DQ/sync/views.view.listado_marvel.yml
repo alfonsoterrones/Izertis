@@ -5,8 +5,10 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - node.type.marvel
+    - taxonomy.vocabulary.tipos
   module:
     - node
+    - taxonomy
     - user
 id: listado_marvel
 label: Listado-Marvel
@@ -151,8 +153,63 @@ display:
           expose:
             operator_limit_selection: false
             operator_list: {  }
+        field_tipo_marvel_target_id:
+          id: field_tipo_marvel_target_id
+          table: node__field_tipo_marvel
+          field: field_tipo_marvel_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_tipo_marvel_target_id_op
+            label: Tipo
+            description: ''
+            use_operator: false
+            operator: field_tipo_marvel_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_tipo_marvel_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: tipos
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
       style:
-        type: default
+        type: html_list
+        options:
+          row_class: ''
+          default_row_class: false
+          uses_fields: false
+          type: ul
+          wrapper_class: item-list
+          class: ''
       row:
         type: 'entity:node'
         options:
@@ -166,14 +223,18 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
+      use_ajax: true
       header: {  }
       footer: {  }
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -190,7 +251,9 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
