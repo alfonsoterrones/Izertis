@@ -1,0 +1,11 @@
+uuid: 7dff2fba-8e7a-416c-87cb-7c1996d651e5
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.marvel
+id: node.marvel
+target_entity_type_id: node
+target_bundle: marvel
+default_langcode: site_default
+language_alterable: false

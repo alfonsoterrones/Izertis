@@ -1,0 +1,11 @@
+uuid: c6e01b02-18d4-46e0-883d-4fbfdf7aa1ea
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.tipos
+id: taxonomy_term.tipos
+target_entity_type_id: taxonomy_term
+target_bundle: tipos
+default_langcode: site_default
+language_alterable: false

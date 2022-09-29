@@ -1,0 +1,20 @@
+uuid: 8364517e-97c9-4689-8e12-89a13e2a4a83
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_tipo_marvel
+field_name: field_tipo_marvel
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

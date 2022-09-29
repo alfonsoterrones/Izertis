@@ -1,0 +1,23 @@
+uuid: efd6d76a-09da-43fa-9ccf-159b802f7940
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_id_marvel
+    - node.type.marvel
+id: node.marvel.field_id_marvel
+field_name: field_id_marvel
+entity_type: node
+bundle: marvel
+label: 'Id Marvel'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

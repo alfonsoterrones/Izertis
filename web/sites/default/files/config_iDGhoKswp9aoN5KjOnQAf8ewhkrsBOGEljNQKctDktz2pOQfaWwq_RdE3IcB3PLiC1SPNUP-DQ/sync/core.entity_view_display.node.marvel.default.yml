@@ -1,0 +1,39 @@
+uuid: e68f8f90-c08c-4e0d-b806-0b5d99b72a55
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.marvel.field_id_marvel
+    - field.field.node.marvel.field_tipo_marvel
+    - node.type.marvel
+  module:
+    - user
+id: node.marvel.default
+targetEntityType: node
+bundle: marvel
+mode: default
+content:
+  field_id_marvel:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_tipo_marvel:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

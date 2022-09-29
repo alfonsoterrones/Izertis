@@ -28,7 +28,7 @@ class MarvelForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $service = \Drupal::service('izertis.event_subscriber');
+    $service = \Drupal::service('izertis.service');
     $form['tipo_marvel'] = [
       '#type' => 'select',
       '#title' => $this
@@ -53,7 +53,7 @@ class MarvelForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $service = \Drupal::service('izertis.event_subscriber');
+    $service = \Drupal::service('izertis.service');
     $arrayMarvel = $service->getContentMarvel($form_state->getValue('tipo_marvel'));
     $service->loadContentMarvel($arrayMarvel, $form_state->getValue('tipo_marvel'));
   }

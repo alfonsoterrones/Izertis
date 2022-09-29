@@ -1,6 +1,4 @@
 services:
-  izertis.event_subscriber:
-    class: Drupal\izertis\EventSubscriber\IzertisSubscriber
+  izertis.service:
+    class: Drupal\izertis\Service\IzertisService
     arguments: ['@messenger']
-    tags:
-      - { name: event_subscriber }

@@ -1,0 +1,29 @@
+uuid: f27e29b3-f432-43fe-a263-52edfd9d68f5
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tipo_marvel
+    - node.type.marvel
+    - taxonomy.vocabulary.tipos
+id: node.marvel.field_tipo_marvel
+field_name: field_tipo_marvel
+entity_type: node
+bundle: marvel
+label: Tipo
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tipos: tipos
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

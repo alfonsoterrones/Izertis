@@ -1,0 +1,25 @@
+uuid: 990eac74-5982-47bf-ac7a-0fda0086024b
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.marvel.field_id_marvel
+    - field.field.node.marvel.field_tipo_marvel
+    - node.type.marvel
+  module:
+    - user
+id: node.marvel.teaser
+targetEntityType: node
+bundle: marvel
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_id_marvel: true
+  field_tipo_marvel: true
+  langcode: true
