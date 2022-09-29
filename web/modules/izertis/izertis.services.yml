@@ -1,4 +1,0 @@
-services:
-  izertis.service:
-    class: Drupal\izertis\Service\IzertisService
-    arguments: ['@messenger']

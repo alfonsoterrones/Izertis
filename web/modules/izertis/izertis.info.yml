@@ -1,5 +1,0 @@
-name: Izertis
-type: module
-description: Obtener comics y personajes de Marvel
-package: Custom
-core_version_requirement: ^9 || ^10
